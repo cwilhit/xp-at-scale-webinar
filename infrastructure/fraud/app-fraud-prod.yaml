@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: config-ctp-fraud-prod
+  name: fraud-ctp-prod-config
   namespace: argocd
   labels:
     acmeco/team: fraud
