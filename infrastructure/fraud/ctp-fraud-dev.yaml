@@ -10,3 +10,6 @@ spec:
   crossplane:
     autoUpgrade:
       channel: Rapid 
+  writeConnectionSecretToRef:
+    name: fraud-dev
+    namespace: fraud
