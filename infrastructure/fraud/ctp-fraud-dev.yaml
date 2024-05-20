@@ -1,0 +1,12 @@
+apiVersion: spaces.upbound.io/v1beta1
+kind: ControlPlane
+metadata:
+  name: fraud-dev
+  namespace: fraud
+  labels:
+    acmeco/team: fraud
+    acmeco/environment: dev
+spec:
+  crossplane:
+    autoUpgrade:
+      channel: Rapid 

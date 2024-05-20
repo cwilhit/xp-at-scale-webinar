@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: orders-control-planes
+  namespace: argocd
+  labels:
+    acmeco/team: orders
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/xp-at-scale-webinar
+    targetRevision: HEAD
+    path: infrastructure/orders
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: orders
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
