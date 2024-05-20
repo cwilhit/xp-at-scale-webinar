@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: inventory-control-planes
+  namespace: argocd
+  labels:
+    acmeco/team: inventory
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/xp-at-scale-webinar
+    targetRevision: HEAD
+    path: infrastructure/inventory
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: inventory
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: config-ctp-fraud-dev
+  namespace: argocd
+  labels:
+    acmeco/team: fraud
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/upbound/spaces-reference-architecture.git
+    targetRevision: HEAD
+    path: configuration/fraud/fraud-dev
+    directory:
+      recurse: true
+  destination:
+    name: fraud-dev
+    namespace: fraud

@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fraud-control-planes
+  namespace: argocd
+  labels:
+    acmeco/team: fraud
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/xp-at-scale-webinar
+    targetRevision: HEAD
+    path: infrastructure/fraud
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: fraud
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

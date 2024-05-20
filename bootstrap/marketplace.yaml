@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: marketplace-control-planes
+  namespace: argocd
+  labels:
+    acmeco/team: marketplace
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/xp-at-scale-webinar
+    targetRevision: HEAD
+    path: infrastructure/marketplace
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: marketplace
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
