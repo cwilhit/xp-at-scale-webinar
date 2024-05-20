@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: config-ctp-fraud-prod
+  name: fraud-ctp-prod-config
   namespace: argocd
   labels:
     acmeco/team: fraud
 spec:
   project: default
   source:
-    repoURL: https://github.com/upbound/spaces-reference-architecture.git
+    repoURL: https://github.com/cwilhit/xp-at-scale-webinar.git
     targetRevision: HEAD
     path: configuration/fraud/fraud-prod
     directory:
