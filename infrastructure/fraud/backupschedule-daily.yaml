@@ -1,12 +1,12 @@
 apiVersion: spaces.upbound.io/v1alpha1
 kind: SharedBackupSchedule
 metadata:
-  name: backupschedule-hourly
+  name: backupschedule-daily
   namespace: fraud
   labels:
     acmeco/team: fraud
 spec:
-  schedule: "@every 1h"
+  schedule: "@every 1d"
   configRef:
     kind: SharedBackupConfig
     name: default
