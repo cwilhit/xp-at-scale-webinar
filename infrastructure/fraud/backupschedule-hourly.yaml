@@ -1,0 +1,16 @@
+apiVersion: spaces.upbound.io/v1alpha1
+kind: SharedBackupSchedule
+metadata:
+  name: backupschedule-hourly
+  namespace: fraud
+  labels:
+    acmeco/team: fraud
+spec:
+  schedule: "@every 1h"
+  configRef:
+    kind: SharedBackupConfig
+    name: default
+  controlPlaneSelector:
+    labelSelectors:
+      - matchExpressions:
+          - { key: acmeco/environment, operator: In, values: [prod] }

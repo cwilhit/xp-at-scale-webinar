@@ -1,0 +1,19 @@
+apiVersion: spaces.upbound.io/v1alpha1
+kind: SharedBackupConfig
+metadata:
+  name: default
+  namespace: fraud
+  labels:
+    acmeco/team: fraud
+spec:
+  objectStorage:
+    provider: AWS
+    bucket: spaces-backup-bucket
+    config:
+      endpoint: s3.us-east-1.amazonaws.com
+      region: us-east-1
+    credentials:
+      source: Secret
+      secretRef:
+        name: bucket-creds
+        key: creds
