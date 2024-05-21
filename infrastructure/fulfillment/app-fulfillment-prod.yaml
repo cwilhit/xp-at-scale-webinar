@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fulfillment-ctp-prod-config
+  namespace: argocd
+  labels:
+    acmeco/team: fulfillment
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/xp-at-scale-webinar.git
+    targetRevision: HEAD
+    path: configuration/fulfillment/fulfillment-prod
+    directory:
+      recurse: true
+  destination:
+    name: fulfillment-prod
+    namespace: fulfillment

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: inventory-ctp-dev-config
+  namespace: argocd
+  labels:
+    acmeco/team: inventory
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/xp-at-scale-webinar.git
+    targetRevision: HEAD
+    path: configuration/inventory/inventory-dev
+    directory:
+      recurse: true
+  destination:
+    name: inventory-dev
+    namespace: inventory

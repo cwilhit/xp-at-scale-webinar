@@ -1,0 +1,15 @@
+apiVersion: spaces.upbound.io/v1beta1
+kind: ControlPlane
+metadata:
+  name: inventory-dev
+  namespace: inventory
+  labels:
+    acmeco/team: inventory
+    acmeco/environment: dev
+spec:
+  crossplane:
+    autoUpgrade:
+      channel: Rapid 
+  writeConnectionSecretToRef:
+    name: inventory-dev
+    namespace: inventory

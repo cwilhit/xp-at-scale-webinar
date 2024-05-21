@@ -1,0 +1,15 @@
+apiVersion: spaces.upbound.io/v1beta1
+kind: ControlPlane
+metadata:
+  name: orders-prod
+  namespace: orders
+  labels:
+    acmeco/team: orders
+    acmeco/environment: prod
+spec:
+  crossplane:
+    autoUpgrade:
+      channel: Rapid 
+  writeConnectionSecretToRef:
+    name: orders-prod
+    namespace: orders

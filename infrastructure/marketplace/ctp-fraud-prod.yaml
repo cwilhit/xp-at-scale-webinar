@@ -1,0 +1,15 @@
+apiVersion: spaces.upbound.io/v1beta1
+kind: ControlPlane
+metadata:
+  name: marketplace-prod
+  namespace: marketplace
+  labels:
+    acmeco/team: marketplace
+    acmeco/environment: prod
+spec:
+  crossplane:
+    autoUpgrade:
+      channel: Rapid 
+  writeConnectionSecretToRef:
+    name: marketplace-prod
+    namespace: marketplace

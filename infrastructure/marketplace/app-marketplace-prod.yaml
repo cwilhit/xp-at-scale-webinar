@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: marketplace-ctp-prod-config
+  namespace: argocd
+  labels:
+    acmeco/team: marketplace
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/xp-at-scale-webinar.git
+    targetRevision: HEAD
+    path: configuration/marketplace/marketplace-prod
+    directory:
+      recurse: true
+  destination:
+    name: marketplace-prod
+    namespace: marketplace

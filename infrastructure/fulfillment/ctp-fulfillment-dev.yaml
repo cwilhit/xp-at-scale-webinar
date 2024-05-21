@@ -1,0 +1,15 @@
+apiVersion: spaces.upbound.io/v1beta1
+kind: ControlPlane
+metadata:
+  name: fulfillment-dev
+  namespace: fulfillment
+  labels:
+    acmeco/team: fulfillment
+    acmeco/environment: dev
+spec:
+  crossplane:
+    autoUpgrade:
+      channel: Rapid 
+  writeConnectionSecretToRef:
+    name: fulfillment-dev
+    namespace: fulfillment
