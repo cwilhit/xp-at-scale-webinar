@@ -12,5 +12,5 @@ spec:
     name: default
   controlPlaneSelector:
     names:
-    - fraud-dev
+    - fraud-dev 
     - fraud-prod
