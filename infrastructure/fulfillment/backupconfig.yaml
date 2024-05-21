@@ -2,9 +2,9 @@ apiVersion: spaces.upbound.io/v1alpha1
 kind: SharedBackupConfig
 metadata:
   name: default
-  namespace: fraud
+  namespace: fulfillment
   labels:
-    acmeco/team: fraud
+    acmeco/team: fulfillment
 spec:
   objectStorage:
     provider: AWS
