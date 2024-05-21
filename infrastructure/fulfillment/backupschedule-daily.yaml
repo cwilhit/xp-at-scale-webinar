@@ -1,0 +1,16 @@
+apiVersion: spaces.upbound.io/v1alpha1
+kind: SharedBackupSchedule
+metadata:
+  name: backupschedule-daily
+  namespace: fulfillment
+  labels:
+    acmeco/team: fulfillment
+spec:
+  schedule: "@every 1d"
+  configRef:
+    kind: SharedBackupConfig
+    name: default
+  controlPlaneSelector:
+    labelSelectors:
+      - matchExpressions:
+          - { key: acmeco/environment, operator: In, values: [prod,dev] }

@@ -1,0 +1,16 @@
+apiVersion: spaces.upbound.io/v1alpha1
+kind: SharedBackupSchedule
+metadata:
+  name: backupschedule-hourly
+  namespace: marketplace
+  labels:
+    acmeco/team: marketplace
+spec:
+  schedule: "@every 1h"
+  configRef:
+    kind: SharedBackupConfig
+    name: default
+  controlPlaneSelector:
+    labelSelectors:
+      - matchExpressions:
+          - { key: acmeco/environment, operator: In, values: [prod] }
