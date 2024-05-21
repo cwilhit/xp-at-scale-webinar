@@ -11,6 +11,6 @@ spec:
     kind: SharedBackupConfig
     name: default
   controlPlaneSelector:
-    labelSelectors:
-      - matchExpressions:
-          - { key: acmeco/environment, operator: In, values: [prod,dev] }
+    names:
+    - orders-prod
+    - orders-dev
